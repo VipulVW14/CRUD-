@@ -2,19 +2,22 @@
 import React, { useState } from 'react';
 import Form from './components/Form';
 import Table from './components/Table';
+import MyTable from './components/MyTable';
+import { AppBar } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import Divider from '@mui/material/Divider';
+import Chip from '@mui/material/Chip';
 
 const App = () => {
   const [data, setData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
 
   const handleSaveEntry = (entry) => {
-    // Add entry to the data array with a unique ID (you can use a library like uuid)
     const newEntry = { id: data.length + 1, ...entry };
     setData([...data, newEntry]);
   };
 
   const handleSelectRow = (id) => {
-    // Toggle selection for the given ID
     if (selectedRows.includes(id)) {
       setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
     } else {
@@ -23,17 +26,22 @@ const App = () => {
   };
 
   const handleDeleteRow = (id) => {
-    // Remove the row with the given ID
     setData(data.filter((row) => row.id !== id));
     setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
   };
 
-  // Implement email sending function
+  // email sending function
 
   return (
     <div>
+      {/* <Appbar/> */}
       <Form onSave={handleSaveEntry} />
-      <Table data={data} onSelectRow={handleSelectRow} onDeleteRow={handleDeleteRow} />
+       <Divider>
+        <Chip label="" />
+      </Divider>
+      <div></div>
+      <div></div>
+      <MyTable data={data} onSelectRow={handleSelectRow} onDeleteRow={handleDeleteRow}/>
       {/* Implement other buttons and functionalities */}
     </div>
   );
