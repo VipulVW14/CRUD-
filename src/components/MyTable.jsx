@@ -12,6 +12,7 @@ import {
   Button
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
 const MyTable = ({ data, onSelectRow, onDeleteRow }) => {
   // const [data, setData] = useState([]);
@@ -63,6 +64,9 @@ const MyTable = ({ data, onSelectRow, onDeleteRow }) => {
           ))}
         </TableBody>
       </Table>
+      <Button variant="contained" endIcon={<SendIcon />} onClick={() => alert("Data Sent to info@redpositive.in !")} style={{display:"flex", justifyContent:"end", margin: "30px"}}>
+          Send
+      </Button>
     </TableContainer>
   );
 };

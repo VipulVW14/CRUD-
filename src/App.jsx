@@ -39,10 +39,7 @@ const App = () => {
        <Divider>
         <Chip label="" />
       </Divider>
-      <div></div>
-      <div></div>
       <MyTable data={data} onSelectRow={handleSelectRow} onDeleteRow={handleDeleteRow}/>
-      {/* Implement other buttons and functionalities */}
     </div>
   );
 };
